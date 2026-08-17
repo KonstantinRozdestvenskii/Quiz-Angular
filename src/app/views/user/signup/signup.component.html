@@ -1,0 +1,42 @@
+<main class="form-page" [formGroup]="signupForm">
+  <div class="container">
+    <div class="form-content">
+      <h1 class="common-title form-title">
+        Регистрация
+      </h1>
+      <div class="info-details">
+        <div class="form-group" [ngStyle]="{'border-color': signupForm.get('name')?.invalid
+                    && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched) ? 'red' : ''}">
+          <input type="text" class="form-input" id="name" formControlName="name" (blur)="changeControl()">
+          <label for="name" class="form-label">Имя</label>
+        </div>
+        <div class="form-group" [ngStyle]="{'border-color': signupForm.get('lastName')?.invalid
+                    && (signupForm.get('lastName')?.dirty || signupForm.get('lastName')?.touched) ? 'red' : ''}">
+          <input type="text" class="form-input" id="last-name" formControlName="lastName" (blur)="changeControl()">
+          <label for="last-name" class="form-label">Фамилия</label>
+        </div>
+        <div class="form-group" [ngStyle]="{'border-color': signupForm.get('email')?.invalid
+                    && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched) ? 'red' : ''}">
+          <input type="text" class="form-input" id="email" formControlName="email" (blur)="changeControl()">
+          <label for="email" class="form-label">Электронная почта</label>
+        </div>
+        <div class="form-group" [ngStyle]="{'border-color': signupForm.get('password')?.invalid
+                    && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched) ? 'red' : ''}">
+          <input type="password" class="form-input" id="password" formControlName="password" (blur)="changeControl()">
+          <label for="password" class="form-label">Пароль</label>
+        </div>
+        <div class="form-agree">
+          <input type="checkbox" id="agree" required formControlName="agree" (change)="changeControl()">
+          <label for="agree">Я ознакомлен <a href="#">с правилами сайта</a></label>
+        </div>
+        <div class="form-button">
+          <button type="button" class="button" id="process" [disabled]="signupForm.invalid">Перейти к выбору теста</button>
+        </div>
+        <div class="form-link">Уже зарегистрированы? <a routerLink="/login">Войти</a></div>
+      </div>
+    </div>
+    <div class="form-image">
+      <img src="assets/images/info-image.png" alt="Персонаж">
+    </div>
+  </div>
+</main>

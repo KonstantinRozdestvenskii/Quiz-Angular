@@ -3,15 +3,16 @@ import {RouterModule, Routes} from '@angular/router';
 import {LayoutComponent} from "./shared/layout/layout.component";
 import {MainComponent} from "./views/main/main.component";
 
+
+
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
       {path: '', component: MainComponent},
-      // loadChildren: () => import('./').then(m => m...),
+      {path: '', loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)}
     ]
-
   }
 ];
 
@@ -19,5 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
